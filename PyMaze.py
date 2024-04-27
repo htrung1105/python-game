@@ -195,8 +195,10 @@ if __name__ == '__main__':
   args = argv[1:] # get arguments from sys.argv
   # create normal diff, dim, path
   diff = 0
-  dim = '100x100'
+  dim = '10x10'
   path = 1
+  start_xy = 0, 0
+  end_xy = 4, 8
 
   # if there are arguments in sys.argv, add them to class Game
   for arg in args:
@@ -207,6 +209,7 @@ if __name__ == '__main__':
     elif '--path' in arg:
       path = int(arg.split('=')[-1])
 
-  g = Game(diff, dim, path, 0, 0, 4, 8) # diff: ??; dim: dimensions MxN; path: ??;
+  g = Game(diff, dim, path, *start_xy, *end_xy) 
+  # diff: ??; dim: dimensions MxN; path: ??; start_xy = 0, 0; end_xy = 4, 8
   g.start()
 
